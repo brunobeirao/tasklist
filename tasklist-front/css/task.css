@@ -1,5 +1,23 @@
- 
- table, th , td {
+.tabelaEditavel {
+  border:solid 1px;
+  width:100%
+}
+
+.tabelaEditavel td {
+  border:solid 1px;
+}
+
+.tabelaEditavel .celulaEmEdicao {
+  padding: 0;
+}
+
+.tabelaEditavel .celulaEmEdicao input[type=text]{
+  width:100%;
+  border:0;
+  background-color:rgb(255,253,210);  
+}
+
+ /*table, th , td {
     border: 1px solid grey;
     border-collapse: collapse;
     padding: 5px;
@@ -10,7 +28,8 @@
   table tr:nth-child(even) {
     background-color: #ffffff;
   }
- /* Style inputs, select elements and textareas */
+  */
+ /* Style inputs, select elements and textareas
  input[type=text], select, textarea{
     width: 100%;
     padding: 12px;
@@ -18,7 +37,7 @@
     border-radius: 4px;
     box-sizing: border-box;
     resize: vertical;
-  }
+  }*/
   
   /* Style the label to display next to the inputs */
   label {
@@ -26,7 +45,7 @@
     display: inline-block;
   }
   
-  /* Style the submit button */
+  /* Style the submit button 
   input[type=submit] {
     background-color: #4CAF50;
     color: white;
@@ -35,7 +54,7 @@
     border-radius: 4px;
     cursor: pointer;
     float: right;
-  }
+  }*/
   
   /* Style the container */
   .container {
@@ -58,12 +77,12 @@
     margin-top: 6px;
   }
   
-  /* Clear floats after the columns */
+  /* Clear floats after the columns
   .row:after {
     content: "";
     display: table;
     clear: both;
-  }
+  }*/
   
   /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
   @media screen and (max-width: 600px) {

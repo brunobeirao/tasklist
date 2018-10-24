@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="tasklist">
 	<head>
-		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
@@ -10,6 +11,7 @@
 		<script src="js/app.js"></script>
 		<script src="js/services.js"></script>
 		<script src="js/controller.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/task.css">
 	<head/>
 	<body>
@@ -28,25 +30,44 @@
 						<option value="pendente">Pendente</option>
 						<option value="concluido">Concluído</option>
 				</select><br>
-				<input type="submit" ng-click="update(taskData)" value="Salvar Tarefa" />
+				<input type="submit" ng-click="addTask(taskData)" value="Salvar Tarefa" />
 			</div>
 			</form>
 	
 			<label for="tarefas">Tarefas Cadastradas</label><br>
 
-			<table>
-				<tr>
-					<th>Título</th>
-					<th>Descrição</th>
-					<th>Status</th>
-				</tr>
-				<tr ng-repeat="task in ctrl.getTasks" ng-model="ctrl.getTasks">
-					<td ng-bind="task.titulo" ></td>
-					<td ng-bind="task.descricao"></td>
-					<td ng-bind="task.status"></td>
-				</tr>
+			<table class="tabelaEditavel">
+				<thead>
+					<tr>
+						<th>Título</th>
+						<th>Descrição</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="task in ctrl.getTasks" ng-model="ctrl.getTasks">
+						<td ng-model="task.id">{{task.id}}</td>
+						<td ><input name="titulo{{$index}}" ng-model="task.titulo" ng-disabled="!enabledEdit[{{$index}}]"/></td>
+						<td ><input name="descricao{{$index}}" ng-model="task.descricao" ng-disabled="!enabledEdit[{{$index}}]"/></td>
+						<td ><input name="status{{$index}}" ng-model="task.status" ng-disabled="!enabledEdit[{{$index}}]"/></td>
+						<td class="span2">
+							<button id="btnEditar" class="btn btn-primary pull-right" ng-click="editarTask($index)">
+								<i class="icon-edit"></i> Editar
+							</button>
+						</td>
+						<td class="span2">
+							<button id="btnExcluir" class="btn btn-danger pull-right" ng-click="deleteTask(task.id)">
+								<i class="icon-trash"></i> Excluir
+							</button>
+						</td>
+						<td class="span2">
+							<button id="btnSalvar" class="btn btn-danger pull-right" ng-show="enabledSalvar[{{$index}}]" ng-click="salvarEdicaoTask(task)">
+								<i class="icon-trash"></i> Salvar
+							</button>
+						</td>
+					</tr>
+				</tbody>
 			</table>
-	
 		</div>
 	</body>
 	

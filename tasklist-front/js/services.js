@@ -14,11 +14,15 @@ tasklist.service('tasklistService', function ($http, $resource){
 	
 	var ADD_TASK = 'http://localhost:8080/tasklist/add';
 	
-	var LIST_TASK = 'http://localhost:8080/tasklist/list';
+    var LIST_TASK = 'http://localhost:8080/tasklist/list';
+    
+    var UPDATE_TASK = 'http://localhost:8080/tasklist/update';
 
     var serviceAddTask = $resource(ADD_TASK, {titulo:'@titulo', descricao:'@descricao', status:'@status'}, queryConfig);
 	
-	var serviceGetTask = $resource(LIST_TASK, queryConfig);
+    var serviceGetTask = $resource(LIST_TASK, queryConfig);
+    
+    var servicePutTask = $resource(UPDATE_TASK, queryConfig);
 	
 	var _addTask = function (taskData, callback, error) {
         console.log(taskData);
@@ -28,6 +32,22 @@ tasklist.service('tasklistService', function ($http, $resource){
             method: 'POST',
             transformRequest: transformRequest,
             data:{
+                titulo: taskData.titulo,
+                descricao: taskData.descricao,
+                status: taskData.status
+            }
+        });
+    };
+
+    var _updateTask = function (taskData, callback, error) {
+        console.log(taskData);
+        return $http ({
+            url : UPDATE_TASK,
+            headers : headers,
+            method: 'PUT',
+            transformRequest: transformRequest,
+            data:{
+                id: taskData.id,
                 titulo: taskData.titulo,
                 descricao: taskData.descricao,
                 status: taskData.status
@@ -52,7 +72,8 @@ tasklist.service('tasklistService', function ($http, $resource){
 
     return {
         addTask         		     	: _addTask,
-		getTasks						: _getTasks
+        getTasks						: _getTasks,
+        updateTask                      : _updateTask
     };
 
 });
