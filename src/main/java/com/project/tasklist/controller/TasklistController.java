@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,22 +53,23 @@ public class TasklistController {
 	@ApiOperation(value = "List of tasks")
 	public ResponseEntity<List<Tasklist>> getTasks(){
 		
-		List<Tasklist> tasks = tasklistService.getTasks();
+		List<Tasklist> tasks = (List<Tasklist>) tasklistRepository.findAll();
 		if (tasks.isEmpty()){
 			return new ResponseEntity(HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<List<Tasklist>>(tasks, HttpStatus.OK);
 		
 	}
-	
-	@GetMapping("/add")
+	@CrossOrigin(origins = "http://localhost:8000")
+	@PostMapping("/add")
 	@ApiOperation(value = "Add tasks")
 	public @ResponseBody String addNewTask (@RequestParam String titulo, @RequestParam String descricao, 
 			@RequestParam String status) {
 
 		Date date = new Date();
 		Tasklist task = new Tasklist();
-
+		
+//		task.setId(5);
 		task.setTitulo(titulo);
 		task.setDescricao(descricao);
 		task.setStatus(status);
@@ -75,14 +77,14 @@ public class TasklistController {
 		tasklistRepository.save(task);
 		return "Salvo";
 	}
-	@PutMapping("/update/{id}")
+	@CrossOrigin(origins = "http://localhost:8000")
+	@PutMapping("/update")
 	@ApiOperation(value = "Update task")
-	public String updateTask(@PathVariable(value = "id") Integer id, @RequestParam String titulo, @RequestParam String descricao, 
+	public String updateTask(@RequestParam Integer id, @RequestParam String titulo, @RequestParam String descricao, 
 			@RequestParam String status) {
 		
 		Date date = new Date();
 		Tasklist currentTask = tasklistService.getTask(id);
-		
 //		if (currentTask == null) {
 //			return new ResponseEntity(new CustomErrorType("Unable to update. User with id " 
 //					+ id +" not found"), HttpStatus.NOT_FOUND);
@@ -91,7 +93,7 @@ public class TasklistController {
 		currentTask.setTitulo(titulo);
 		currentTask.setDescricao(descricao);
 		currentTask.setStatus(status);
-		currentTask.setDateCriacao(date);
+		currentTask.setDateEdicao(date);
 		
 		tasklistService.saveTask(currentTask);
 		return "edited";
