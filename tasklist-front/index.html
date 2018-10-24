@@ -26,6 +26,7 @@
 				<input type="text" ng-model="taskData.descricao"/><br>
 				<label for="descricao">Status</label><br>
 				<select name="singleSelect" id="singleSelect" ng-model="taskData.status">
+						<option value="" selected disabled hidden>Defina um status</option>
 						<option value="iniciado">Iniciado</option>
 						<option value="pendente">Pendente</option>
 						<option value="concluido">Concluído</option>
@@ -49,7 +50,11 @@
 						<td ng-model="task.id">{{task.id}}</td>
 						<td ><input name="titulo{{$index}}" ng-model="task.titulo" ng-disabled="!enabledEdit[{{$index}}]"/></td>
 						<td ><input name="descricao{{$index}}" ng-model="task.descricao" ng-disabled="!enabledEdit[{{$index}}]"/></td>
-						<td ><input name="status{{$index}}" ng-model="task.status" ng-disabled="!enabledEdit[{{$index}}]"/></td>
+						<td >
+							<select ng-model="task.status" ng-disabled="!enabledEdit[{{$index}}]">
+									<option ng-repeat="task in ctrl.getTasks">{{task.status}}</option>
+							</select>
+						</td>
 						<td class="span2">
 							<button id="btnEditar" class="btn btn-primary pull-right" ng-click="editarTask($index)">
 								<i class="icon-edit"></i> Editar

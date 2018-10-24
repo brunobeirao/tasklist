@@ -3,10 +3,9 @@ tasklist.controller('TasklistController', function($scope, tasklistService) {
     var ctrl = this;
     $scope.enabledEdit=[];
     $scope.enabledSalvar=[];
-
+    
 	tasklistService.getTasks(function(response){
         ctrl.getTasks = response;
-        
     },function(data, status) {
         
         console.error('Repos error', status, data);
@@ -30,7 +29,8 @@ tasklist.controller('TasklistController', function($scope, tasklistService) {
 
     $scope.salvarEdicaoTask = function(taskData){
         console.log(taskData);
-        tasklistService.updateTask(taskData).success(function(response){  
+        tasklistService.updateTask(taskData).success(function(response){ 
+            ctrl.getTasks.reload(); 
         }).error(function(data, status) {
             console.error('Repos error', status, data);
         });
