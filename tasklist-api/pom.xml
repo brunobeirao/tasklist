@@ -70,6 +70,23 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+                <groupId>com.project</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.3.9</version>
+                <configuration>
+                    <imageName>todo-rest</imageName>
+                    <baseImage>java:openjdk-8-jdk-alpine</baseImage>
+                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar", "--spring.profiles.active=prod"]</entryPoint>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+</plugin>
 		</plugins>
 	</build>
 

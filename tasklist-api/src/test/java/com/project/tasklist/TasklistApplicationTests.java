@@ -1,40 +1,35 @@
 package com.project.tasklist;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.project.tasklist.controller.TasklistController;
-import com.project.tasklist.model.Tasklist;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class TasklistApplicationTests {
-
-	@Test
-	public void contextLoads() {
-	}
-	
-	@MockBean
-	private TasklistController tasklistController;
-
-	private MockMvc mockMvc;
-	
-	@Before
-	public void setup() {
-		MockitoAnnotations.initMocks(this);
-		this.mockMvc = MockMvcBuilders.standaloneSetup(tasklistController).build();
-	}
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
+//public class TasklistApplicationTests {
+//
+//	@Test
+//	public void contextLoads() {
+//	}
+//	
+//	@MockBean
+//	private TasklistController tasklistController;
+//
+//	private MockMvc mockMvc;
+//	
+//	@Before
+//	public void setup() {
+//		MockitoAnnotations.initMocks(this);
+//		this.mockMvc = MockMvcBuilders.standaloneSetup(tasklistController).build();
+//	}
 	
 //	@Test
 //	public void load() throws Exception {
@@ -62,4 +57,4 @@ public class TasklistApplicationTests {
 //	    verifyNoMoreInteractions(userService);
 //	}
 
-}
+//}

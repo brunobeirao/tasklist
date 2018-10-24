@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="tasklist">
+	<head>
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+		<script src="https://code.angularjs.org/1.5.0/angular-resource.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/services.js"></script>
+		<script src="js/controller.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/task.css">
+	<head/>
+	<body>
+		<div class="container" ng-controller="TasklistController as ctrl">
+			
+			<label for="add">Adicionar Nova Tarefa</label><br>
+			<form novalidate class="simple-form">
+			<div class="row">
+				<label for="titulo">Título</label><br>
+				<input type="text" ng-model="taskData.titulo"/><br>
+				<label for="descricao">Descrição</label><br>
+				<input type="text" ng-model="taskData.descricao"/><br>
+				<label for="descricao">Status</label><br>
+				<select name="singleSelect" id="singleSelect" ng-model="taskData.status">
+						<option value="iniciado">Iniciado</option>
+						<option value="pendente">Pendente</option>
+						<option value="concluido">Concluído</option>
+				</select><br>
+				<input type="submit" ng-click="update(taskData)" value="Salvar Tarefa" />
+			</div>
+			</form>
+	
+			<label for="tarefas">Tarefas Cadastradas</label><br>
+
+			<table>
+				<tr>
+					<th>Título</th>
+					<th>Descrição</th>
+					<th>Status</th>
+				</tr>
+				<tr ng-repeat="task in ctrl.getTasks" ng-model="ctrl.getTasks">
+					<td ng-bind="task.titulo" ></td>
+					<td ng-bind="task.descricao"></td>
+					<td ng-bind="task.status"></td>
+				</tr>
+			</table>
+	
+		</div>
+	</body>
+	
+</html>

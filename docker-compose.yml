@@ -1,0 +1,18 @@
+version: '1'
+services:
+  todo-nginx:
+    build: tasklist-frontend/.
+    ports:
+      - "80:80"
+    depends_on:
+      - tasklist-api
+  todo-rest:
+    build: tasklist-api/.
+    depends_on:
+      - tasklist-db
+  todo-db:
+    image: mysql
+    environment:
+      MYSQL_USER: bruno
+      MYSQL_PASSWORD: root
+      MYSQL_DB: tasklist

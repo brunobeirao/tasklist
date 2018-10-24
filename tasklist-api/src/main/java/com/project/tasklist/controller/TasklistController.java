@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,7 +48,7 @@ public class TasklistController {
 	public TasklistController(TasklistRepository tasklistRepository) {
 		this.tasklistRepository = tasklistRepository;
 	}
-	@CrossOrigin(origins = "http://localhost:8000")
+	@CrossOrigin(origins = "http://localhost:8081")
 	@GetMapping("/list")
 	@ApiOperation(value = "List of tasks")
 	public ResponseEntity<List<Tasklist>> getTasks(){
@@ -59,8 +60,8 @@ public class TasklistController {
 		return new ResponseEntity<List<Tasklist>>(tasks, HttpStatus.OK);
 		
 	}
-	
-	@GetMapping("/add")
+	@CrossOrigin(origins = "http://localhost:8081")
+	@PostMapping("/add")
 	@ApiOperation(value = "Add tasks")
 	public @ResponseBody String addNewTask (@RequestParam String titulo, @RequestParam String descricao, 
 			@RequestParam String status) {
