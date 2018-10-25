@@ -23,13 +23,13 @@ Execute para subir a API:
    
 Acessar a pasta tasklist-front e digite o comando para subir o frontend:
       
-    http-server -o
+    http-server -o -p 8081
 
 Caso não tenha instalado o http-server:
 
     npm install http-server -g
     
-Acesse http://localhost:8080
+Acesse http://localhost:8081
 
 
 ### Melhorias
