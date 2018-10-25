@@ -1,4 +1,5 @@
 # Tasklist
+CRUD de tarefas básico desenvolvido com Springboot com Mysql e angular.
 
 ### Projeto
 
@@ -6,6 +7,15 @@ O projeto foi divido em API e frontend. Para abrir o projeto na IDE faça o clon
 
 ### Execução
 As instruções para execução são para SO linux.
+
+Criar um banco de dados conforme o application.properties:
+
+    spring.jpa.hibernate.ddl-auto=update
+    spring.datasource.url=jdbc:mysql://127.0.0.1:3306/tasklist
+    spring.datasource.username=root
+    spring.datasource.password=root
+    spring.jpa.database=mysql
+
 Na raiz do projeto existe o arquivo **tasklist-1.0.0-SNAPSHOT.jar**
 Execute para subir a API:
 
