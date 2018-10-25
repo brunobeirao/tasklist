@@ -19,13 +19,20 @@ public class Tasklist {
 	private Integer id;
 	private String titulo;
 	private String descricao;
-	private String status;
+	private Boolean status;
 	private Date dateCriacao;
 	private Date dateEdicao;
 	private Date dateRemocao;
 	private Date dateConclusao;
 	
+	public Integer getId() {
+		return id;
+	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -42,11 +49,11 @@ public class Tasklist {
 		this.descricao = descricao;
 	}
 
-	public String getStatus() {
+	public Boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Boolean status) {
 		this.status = status;
 	}
 	

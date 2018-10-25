@@ -36,7 +36,6 @@ tasklist.service('tasklistService', function ($http, $resource){
     };
 
     var _updateTask = function (taskData, status, callback, error) {
-        console.log(taskData);
         return $http ({
             url : UPDATE_TASK,
             headers : postHeaders,

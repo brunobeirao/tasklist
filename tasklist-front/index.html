@@ -18,18 +18,18 @@
 	<body>
 		<div class="container" ng-controller="TasklistController as ctrl">
 			<div class="">
-				<h2 for="add">Adicionar Nova Tarefa</h2><br>
-				<form novalidate class="simple-form">
-				<div class="row">
-					<label for="titulo">Título</label><br>
-					<input type="text" ng-model="taskData.titulo"/><br>
-					<label for="descricao">Descrição</label><br>
-					<input type="text" ng-model="taskData.descricao"/><br>
-					<input type="submit" ng-click="addTask(taskData)" value="Salvar Tarefa" />
-				</div>
+				<h2 for="add">Adicionar Tarefa</h2><br>
+				<form class="simple-form">
+					<div class="row">
+						<label for="titulo">Título</label><br>
+						<input type="text" ng-model="taskData.titulo" required/><br>
+						<label for="descricao">Descrição</label><br>
+						<input type="text" ng-model="taskData.descricao"/><br>
+						<input type="submit" ng-click="addTask(taskData)" value="Salvar Tarefa" />
+					</div>
 				</form>
 			</div>
-			<h2 for="tarefas">Tarefas Cadastradas</h2><br>
+			<h2 class="custom-h2" for="tarefas">Tarefas Cadastradas</h2><br>
 
 			<table class="table tabelaEditavel">
 				<thead>
@@ -66,8 +66,8 @@
 					</tr>
 				</tbody>
 			</table>
+			<div ng-show="ctrl.ver">Nenhuma tarefa cadastrada.</div>
 		</div>
-		
 	</body>
 
 </html>

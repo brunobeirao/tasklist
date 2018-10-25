@@ -11,15 +11,13 @@
 }
 
 .container h2 {
-  text-align: -webkit-center;
   font-family: cursive;
 }
 
 table, th , td {
   border: 1px solid grey;
   border-collapse: collapse;
-  padding: 5px;
-    
+  padding: 5px;   
 }
 
 table tr:nth-child(odd) {
@@ -31,7 +29,7 @@ table tr:nth-child(even) {
 }
 
 input[type=text], select, textarea{
-  width: 100%;
+  width: 35%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -40,12 +38,10 @@ input[type=text], select, textarea{
   font-family: cursive;
 }
 
-
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
 }
-  
 
 input[type=submit] {
   background-color: #4CAF50;
@@ -66,7 +62,6 @@ button {
   cursor: pointer;
 }
   
-
 .container {
   border-radius: 5px;
   background-color: #f2f2f2;
@@ -80,22 +75,6 @@ button {
   border-top:solid 1px;
 }
 
- .col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
-
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.custom-h2 {
+  text-align: -webkit-center;
 }

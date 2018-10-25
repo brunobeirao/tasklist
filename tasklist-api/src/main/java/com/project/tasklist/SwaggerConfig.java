@@ -29,7 +29,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
   private ApiInfo metaData() {
     return new ApiInfoBuilder()
         .title("Tasklist API")
-        .description("\"Tasklist\"")
+        .description("\"CRUD de tarefas\"")
         .version("1.0.0")
         .build();
   }
