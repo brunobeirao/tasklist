@@ -1,0 +1,80 @@
+.tabelaEditavel {
+  width:100%
+}
+
+.tabelaEditavel td {
+  text-align: center;
+}
+
+.tabelaEditavel input {
+  width: -webkit-fill-available;
+}
+
+.container h2 {
+  font-family: cursive;
+}
+
+table, th , td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;   
+}
+
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+input[type=text], select, textarea{
+  width: 35%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  font-family: cursive;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+  
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+ }
+
+.custom-td{
+  width: 10%;
+  border: none;
+  text-align: center;
+  border-top:solid 1px;
+}
+
+.custom-h2 {
+  text-align: -webkit-center;
+}
