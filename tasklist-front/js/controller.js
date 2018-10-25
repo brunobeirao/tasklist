@@ -1,25 +1,34 @@
-tasklist.controller('TasklistController', function($scope, tasklistService) {
+tasklist.controller('TasklistController', function($scope, tasklistService, $interval) {
 
     var ctrl = this;
     $scope.enabledEdit=[];
     $scope.enabledSalvar=[];
+    ctrl.status = false;
+    $scope.getTasks =[];
+
+    var newDataList = [];
+   
+    function reload(response) { 
+        tasklistService.getTasks(function(response){
+         },function(data, status) {    
+             console.error('Repos error', status, data);
+         });
+    };
     
 	tasklistService.getTasks(function(response){
-        ctrl.getTasks = response;
-    },function(data, status) {
-        
+        $scope.getTasks = response;
+    },function(data, status) {    
         console.error('Repos error', status, data);
-    }); 
-
-    ctrl.cadastrar = function(taskData) {
-
-    };
+    });
 
     $scope.addTask = function(taskData) {
         tasklistService.addTask(taskData).success(function(response){  
         }).error(function(data, status) {
             console.error('Repos error', status, data);
         });
+        $scope.taskData.titulo ='';
+        $scope.taskData.descricao ='';
+        $scope.getTasks.push(reload());
     };
     
     $scope.editarTask = function(index){
@@ -28,18 +37,22 @@ tasklist.controller('TasklistController', function($scope, tasklistService) {
     };
 
     $scope.salvarEdicaoTask = function(taskData){
-        console.log(taskData);
-        tasklistService.updateTask(taskData).success(function(response){ 
-            ctrl.getTasks.reload(); 
+        ctrl.reload();
+        tasklistService.updateTask(taskData, ctrl.status).success(function(response){ 
         }).error(function(data, status) {
             console.error('Repos error', status, data);
         });
     };
+
     $scope.deleteTask = function(id) {
         tasklistService.deleteTask(id).success(function(response){  
         }).error(function(data, status) {
             console.error('Repos error', status, data);
         });
       };
+
+    $scope.checar = function(check){
+        ctrl.status = check;
+    };
     
 });

@@ -18,14 +18,11 @@ tasklist.service('tasklistService', function ($http, $resource){
     
     var UPDATE_TASK = 'http://localhost:8080/tasklist/update';
 
-    var serviceAddTask = $resource(ADD_TASK, {titulo:'@titulo', descricao:'@descricao', status:'@status'}, queryConfig);
-	
+    var DELETE_TASK = 'http://localhost:8080/tasklist/delete';
+
     var serviceGetTask = $resource(LIST_TASK, queryConfig);
     
-    var servicePutTask = $resource(UPDATE_TASK, queryConfig);
-	
 	var _addTask = function (taskData, callback, error) {
-        console.log(taskData);
         return $http ({
             url : ADD_TASK,
             headers : postHeaders,
@@ -34,23 +31,34 @@ tasklist.service('tasklistService', function ($http, $resource){
             data:{
                 titulo: taskData.titulo,
                 descricao: taskData.descricao,
-                status: taskData.status
             }
         });
     };
 
-    var _updateTask = function (taskData, callback, error) {
+    var _updateTask = function (taskData, status, callback, error) {
         console.log(taskData);
         return $http ({
             url : UPDATE_TASK,
-            headers : headers,
-            method: 'PUT',
+            headers : postHeaders,
+            method: 'POST',
             transformRequest: transformRequest,
             data:{
                 id: taskData.id,
                 titulo: taskData.titulo,
                 descricao: taskData.descricao,
-                status: taskData.status
+                status: status
+            }
+        });
+    };
+
+    var _deleteTask = function (id, callback, error) {
+        return $http ({
+            url : DELETE_TASK,
+            headers : postHeaders,
+            method: 'POST',
+            transformRequest: transformRequest,
+            data:{
+                id: id,
             }
         });
     };
@@ -73,7 +81,8 @@ tasklist.service('tasklistService', function ($http, $resource){
     return {
         addTask         		     	: _addTask,
         getTasks						: _getTasks,
-        updateTask                      : _updateTask
+        updateTask                      : _updateTask,
+        deleteTask                      : _deleteTask
     };
 
 });
