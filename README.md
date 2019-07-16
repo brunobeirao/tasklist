@@ -33,7 +33,6 @@ Acesse http://localhost:8081
 
 
 ### Melhorias
-
- - Docker: Configurar o docker para subir o ambiente inteiro.
- - Testes: Desenvolver testes unitários.
- - Bugs: Correção de bugs.
+ 1- Testes: Desenvolver testes unitários antes de qualquer outra funcionalidade conforme as boas práticas.
+ 2- Configurar Docker.
+ 3- Bugs: Correção de bugs.
