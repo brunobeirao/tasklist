@@ -34,5 +34,7 @@ Acesse http://localhost:8081
 
 ### Melhorias
  1- Testes: Desenvolver testes unitários antes de qualquer outra funcionalidade conforme as boas práticas.
+ 
  2- Configurar Docker.
+ 
  3- Bugs: Correção de bugs.
