@@ -1,12 +1,12 @@
 # Tasklist
-CRUD de tarefas básico desenvolvido com Springboot com Mysql e angular.
+CRUD de tarefas básico desenvolvido com Springboot com Mysql e angularjs.
 
 ### Projeto
 
 O projeto foi divido em API e frontend. Para abrir o projeto na IDE faça o clone do projeto e importe cada diretório(tasklist-api / tasklist-front) em separado na sua IDE.
 
 ### Execução
-As instruções para execução são para SO linux.
+As instruções para execução são para Ubuntu.
 
 Criar um banco de dados conforme o application.properties:
 
@@ -16,7 +16,7 @@ Criar um banco de dados conforme o application.properties:
     spring.datasource.password=root
     spring.jpa.database=mysql
     
-Instalar e configurar Mysql(Ubuntu)    
+Instalar e configurar Mysql:
 
 	sudo apt-get install mysql-server
 	
