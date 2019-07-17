@@ -15,7 +15,21 @@ Criar um banco de dados conforme o application.properties:
     spring.datasource.username=root
     spring.datasource.password=root
     spring.jpa.database=mysql
+    
+Instalar e configurar Mysql(Ubuntu)    
 
+	sudo apt-get install mysql-server
+	
+	sudo mysql
+	
+	ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+	
+	FLUSH PRIVILEGES;
+	
+	CREATE DATABASE tasklist;
+	USE tasklist;
+
+	
 Na raiz do projeto existe o arquivo **tasklist-1.0.0-SNAPSHOT.jar**
 Execute para subir a API:
 
