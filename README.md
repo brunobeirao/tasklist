@@ -33,7 +33,7 @@ Instalar e configurar Mysql(Ubuntu)
 Na raiz do projeto existe o arquivo **tasklist-1.0.0-SNAPSHOT.jar**
 Execute para subir a API:
 
-    java -jar tasklist-1.0.0-SNAPSHOT.jar
+    java -jar tasklist-1.0.0.jar
    
 Acessar a pasta tasklist-front e digite o comando para subir o frontend:
       
