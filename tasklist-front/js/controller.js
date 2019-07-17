@@ -6,6 +6,7 @@ tasklist.controller('TasklistController', function($scope, tasklistService, $int
     ctrl.status = false;
     $scope.getTasks =[];
     ctrl.ver = true;
+    
 
     function loadList() { 
         tasklistService.getTasks(function(response){    

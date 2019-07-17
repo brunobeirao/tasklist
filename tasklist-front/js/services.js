@@ -1,4 +1,4 @@
-tasklist.service('tasklistService', function ($http, $resource){
+tasklist.service('tasklistService', function ($http, $resource, ENV){
 
     var queryConfig = {get: {
                                     method: 'GET',
@@ -11,14 +11,14 @@ tasklist.service('tasklistService', function ($http, $resource){
                                     isArray: true,
                               }
                        };
-	
-	var ADD_TASK = 'http://localhost:8080/tasklist/add';
-	
-    var LIST_TASK = 'http://localhost:8080/tasklist/list';
     
-    var UPDATE_TASK = 'http://localhost:8080/tasklist/update';
+	var ADD_TASK = ENV.apiEndpoint + '/tasklist/add';
+	
+    var LIST_TASK = ENV.apiEndpoint + '/tasklist/list';
+    
+    var UPDATE_TASK = ENV.apiEndpoint + '/tasklist/update';
 
-    var DELETE_TASK = 'http://localhost:8080/tasklist/delete';
+    var DELETE_TASK = ENV.apiEndpoint + '/tasklist/delete';
 
     var serviceGetTask = $resource(LIST_TASK, queryConfig);
     

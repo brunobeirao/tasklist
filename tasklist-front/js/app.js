@@ -1,1 +1,1 @@
-var tasklist = angular.module('tasklist', ['ngResource']);
+var tasklist = angular.module('tasklist', ['ngResource', 'config']);
