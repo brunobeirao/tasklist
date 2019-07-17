@@ -30,7 +30,7 @@ Instalar e configurar Mysql(Ubuntu)
 	USE tasklist;
 
 	
-Na raiz do projeto existe o arquivo **tasklist-1.0.0-SNAPSHOT.jar**
+Na raiz do projeto existe o arquivo **tasklist-1.0.0.jar**
 Execute para subir a API:
 
     java -jar tasklist-1.0.0.jar
